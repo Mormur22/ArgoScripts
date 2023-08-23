@@ -2,7 +2,7 @@
 
 # Directorios
 SCRIPTS_DIR="./scripts"
-KUSTOMIZE_DIR="./configmaps"
+KUSTOMIZE_DIR="./config-maps"
 KUSTOMIZE_FILE="$KUSTOMIZE_DIR/kustomization.yaml"
 
 # Crea el archivo si no existe

@@ -1,0 +1,5 @@
+configMapGenerator:
+- name: wordcount-script
+  namespace: spark-jobs
+  files:
+  - ../scripts/wordcount.py

@@ -1,0 +1,26 @@
+name: Update Kustomize Configuration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-kustomize:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Execute script
+      run: |
+        chmod +x ./update-kustomize.sh
+        ./update-kustomize.sh
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ./configmaps/kustomization.yaml
+        git commit -m "Automatically updated kustomization.yaml" || echo "No changes to commit"
+        git push
